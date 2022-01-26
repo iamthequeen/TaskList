@@ -1,0 +1,166 @@
+@mixin background-size($sizing) {
+    -webkit-background-size: $sizing;
+    -moz-background-size: $sizing;
+    -o-background-size: $sizing;
+    background-size: $sizing;
+  }
+  
+  @mixin align-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  $primary-color: rgb(0,0,0);
+  $secondary-color: rgb(255,255,255);
+  $primary-check: #27576A;
+  $secondary-check: #808080;
+  $small-measure: 5px;
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80') no-repeat center center fixed ; 
+    @include background-size(cover);
+    height: 100vh;
+    width: 100%;
+    font-family: arial, sans-serif;
+  }
+  
+  .container {
+    width: 95%;
+  }
+  
+  h1 {
+    padding-bottom: #{$small-measure * 2};
+  }
+  
+  .title, .date, .task {
+    margin: 0;
+  }
+  
+  .task-container {
+    margin-top: #{$small-measure * 4};
+    z-index: 0;
+  }
+  
+  .task-box {
+    background-color: rgba(255,255,255, 0.8);
+    border-radius: $small-measure;
+    @include align-center;
+    height: 3em;
+    margin-bottom: $small-measure;
+    z-index: -2;
+  }
+  
+  input[type="checkbox"] {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    color: $primary-color;
+    border: 1px solid $secondary-check;
+    border-radius: 50%;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    margin-left: #{$small-measure * 2};
+    transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+  }
+  
+    .checkbox::before {
+      position: absolute;
+      content: '';
+      display: block;
+      bottom: 7px;
+      left: 9px;
+      width: $small-measure;
+      height: 11px;
+      border-style: solid;
+      border-color: $secondary-color;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  
+    .checkbox:checked {
+      color: $secondary-color;
+      border-color: $primary-check;
+      background: $primary-check;
+  }
+  
+      .checkbox::before {
+        opacity: 1;
+      }
+   
+  .task-and-delete {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task {
+    font-weight: normal;
+    padding-left: #{$small-measure * 2};
+    font-size: 1.2em;
+  }
+  
+  .delete-mark {
+    width: 18px;
+    margin-right: #{$small-measure * 4};
+    margin-top: 4px;
+    opacity: 0.3;
+  }
+  
+  .delete-mark:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  .new-task-container {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    font-size: #{$small-measure * 3};
+  }
+  
+  .plus-sign {
+    width: 21px;
+    position: absolute;
+    top: 13px;
+    left: #{$small-measure * 2};
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .new-task-box {
+    border: none;
+    opacity: 1;
+    width: 95%;
+    border-radius: $small-measure;
+    height: 3em;
+    padding-left: #{$small-measure * 8};
+  }
+  
+  .new-task-box:focus {
+    outline: none;
+  }
+  
+  input[type="text"] {
+    font-size: 1.10em;
+  }
+  
+  .crossed-out {
+    text-decoration: line-through;
+  }
+  
+  
+  
+  
+  
+  
