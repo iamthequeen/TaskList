@@ -1,5 +1,5 @@
 # Task List
-A web application that allows users to be organized by listing out the tasks they need to complete.
+A web application that allows users to list out the tasks they need to complete.
 
 
 
